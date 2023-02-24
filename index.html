@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <title>Pomodoro Clock</title>
+</head>
+<body>
+    <div class="container">
+        <div id="gridBox-1">
+            <div id="display"><span id="timer-display">00 : 00</span></div>
+        </div>
+        <div id="gridBox-2">
+            <div id="controller">
+                <div id="session-header"><h2 id="session-break-header">Pomodoro</h2></div>
+                <div>
+                    <p class="horizontal-line"> - - - - - - - - - - - - - - - - - - - - - </p>
+                    <div id="time-controller-buttons">
+                    <div id="session-time-interval-section">
+                        <div id="sessionbox">Session time</div>
+                        <div id="session-time"><p>0 MIN</p></div>
+                        <button Id="session-time-decrease-button">-</button>
+                        <button Id="session-time-increase-button">+</button>
+                    </div>
+                    <div id="break-time-interval-section">
+                        <div id="breakbox">Break time</div>
+                        <div id="break-time">0 MIN</div>
+                        <button id="break-time-decrease-button">-</button>
+                        <button Id="break-time-increase-button">+</button>
+                    </div>
+                </div>
+                <p class="horizontal-line"> - - - - - - - - - - - - - - - - - - - - - </p>
+                </div>
+                <div id="clock-controller-buttons">
+                    <button id="start-pause-button">Start</button>
+                    <button id="reset-button">Reset</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js" type="text/javascript"></script>
+</body>
+</html>

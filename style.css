@@ -1,0 +1,138 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e08c53;
+}
+.container {
+    width: 220px;
+    height: 460px;
+    background-color: #30190fee;
+    display: grid;
+    grid-template-rows:repeat(2, auto);
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgb(34, 31, 31)
+}
+#gridBox-1 {
+    padding: 10px 10px 10px 10px;
+}
+#display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    font-size: 3rem;
+    color: blue;
+    background-color: rgb(255, 255, 255);
+    font-weight: bold;
+    border-radius: 2px;
+}
+#gridBox-2 {
+    padding: 10px;
+}
+#controller {
+    display: grid;
+    grid-template-rows: 0.5fr 2fr 0.7fr;
+    color: black;
+
+}
+#session-header {
+    color:white;
+    text-align: center;
+}
+#time-controller-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+#session-time-interval-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+    padding: 5px;
+}
+#sessionbox{
+    color: white;
+    grid-area: 1/span 2;
+}
+#session-time{
+    color: rgb(47, 85, 255);
+    grid-area: 2/span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#session-time-decrease-button{
+    grid-area: 3/1;
+    color: white;
+    background-color: rgb(22, 9, 0);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+#session-time-increase-button{
+    grid-area: 3/2;
+    color: white;
+    background-color: rgb(22, 9, 0);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+#break-time-interval-section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 5px;
+    padding: 5px;
+}
+#breakbox{
+    color: white;
+    grid-area: 1/span 2;
+}
+#break-time {
+    color: rgb(255, 132, 55);
+    grid-area: 2/span 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#break-time-decrease-button{
+    grid-area: 3/1;
+    color: white;
+    background-color: rgb(22, 9, 0);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+#break-time-increase-button{
+    grid-area: 3/2;
+    color: white;
+    background-color: rgb(22, 9, 0);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+#clock-controller-buttons {
+    padding: 10% 6% 0 6%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 60px;
+    align-items: center;
+}
+#clock-controller-buttons>button {
+    color: white;
+    background-color: rgb(22, 9, 0);
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
+}
+.horizontal-line{
+    text-align: center;
+    color: white;
+}
