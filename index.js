@@ -1,5 +1,5 @@
 let seconds = 0, minutes = 0;
-let sessionTime=0, breakTime=0;
+let sessionTime=15, breakTime=5;
 let sessionTimeValue = document.getElementById("session-time");
 let breakTimeValue = document.getElementById("break-time");
 let startPauseButton = document.getElementById("start-pause-button");
@@ -34,10 +34,11 @@ function startSessionTime(){
         }
         if(minutes<10) minutes="0" + minutes;
         if(seconds<10) seconds="0" + seconds;
-        timerDisplay.innerHTML=minutes+":"+seconds;
+        timerDisplay.innerHTML=minutes+" : "+seconds;
         minutes = minutes-1+1;
         seconds = seconds-1+1;
     },1000);
+    timerDisplay.style.color="blue";
     sessionBreakHeader.innerHTML="Session "+counter;
     startPauseButton.removeEventListener("click",pauseBreakTime);
     startPauseButton.removeEventListener("click",startSessionTime);
@@ -78,10 +79,11 @@ function startBreakTime(){
             }
             if(minutes<10) minutes="0" + minutes;
             if(seconds<10) seconds="0" + seconds;
-            timerDisplay.innerHTML=minutes+":"+seconds;
+            timerDisplay.innerHTML=minutes+" : "+seconds;
             minutes = minutes-1+1;
             seconds = seconds-1+1;
         },1000);
+        timerDisplay.style.color="green";
         sessionBreakHeader.innerHTML="Break "+counter;
         startPauseButton.removeEventListener("click",pauseSessionTime);
         startPauseButton.removeEventListener("click",startBreakTime);
@@ -108,11 +110,19 @@ startPauseButton.addEventListener("click",startSessionTime);
 function sessionTimeIncreaseFunction() {
     sessionTime++;
     sessionTimeValue.innerHTML=sessionTime+" MIN";
+    if(sessionTime<10)
+    timerDisplay.innerHTML="0"+sessionTime+" : 00";
+    else
+    timerDisplay.innerHTML=sessionTime+" : 00";
 }
 function sessionTimeDecreaseFunction() {
     if(sessionTime>0){
         sessionTime--;
         sessionTimeValue.innerHTML=sessionTime+" MIN";
+        if(sessionTime<10)
+        timerDisplay.innerHTML="0"+sessionTime+" : 00";
+        else
+        timerDisplay.innerHTML=sessionTime+" : 00";
     }
 }
 function breakTimeIncreaseFunction() {
@@ -139,7 +149,26 @@ function resetPlusMinusButtons(){
 }
 
 resetButton.addEventListener("click",function (){
-    location.reload();
+    clearInterval(timerId);
+    seconds = 0;
+    minutes = 0;
+    sessionTime=15;
+    breakTime=5;
+    counter=1;
+    sessionFlag=true;
+    breakFlag=true;
+    startPauseButton.removeEventListener("click",startSessionTime);
+    startPauseButton.removeEventListener("click",startBreakTime);
+    startPauseButton.removeEventListener("click",pauseSessionTime);
+    startPauseButton.removeEventListener("click",pauseBreakTime);
+    startPauseButton.innerHTML="Start";
+    sessionBreakHeader.innerHTML="Pomodoro";
+    sessionTimeValue.innerHTML="15 MIN";
+    breakTimeValue.innerHTML="5 MIN";
+    resetPlusMinusButtons();
+    setPlusMinusButtons();
+    timerDisplay.innerHTML="15 : 00";
+    startPauseButton.addEventListener("click",startSessionTime);
 });
 window.addEventListener("load",function () {
     setPlusMinusButtons();
